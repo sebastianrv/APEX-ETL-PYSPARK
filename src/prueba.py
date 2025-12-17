@@ -5,7 +5,7 @@ spark = SparkSession.builder.appName("ReadProcessedData").getOrCreate()
 df = spark.read.parquet("data/processed")
 
 df.printSchema()
-df.limit(10).show(truncate=False)
+df.limit(100).show(truncate=False)
 
 spark.stop()
 

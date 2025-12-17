@@ -3,7 +3,8 @@ from pyspark.sql.functions import col, when
 from pyspark.sql.types import DecimalType
 
 def run(df, config):
-
+    # Eliminar duplicados
+    df = df.dropDuplicates()
     # Transformar cajas a unidades
     df = df.withColumn(
         "cantidad_unidades",
@@ -15,7 +16,9 @@ def run(df, config):
             col("cantidad")
         ).otherwise(None)
     )
-
+    df = df.filter(
+    col("tipo_entrega").isin("ZPRE", "ZVE1", "Z04", "Z05")
+    )
     # Clasificar entregas
     df = (
         df
@@ -35,7 +38,7 @@ def run(df, config):
         .cast(DecimalType(10, 2))
     )
 
-    # Limpieza básica
+    # Limpieza bde valores
     df = (
         df
         .dropna(subset=["cantidad_unidades"])

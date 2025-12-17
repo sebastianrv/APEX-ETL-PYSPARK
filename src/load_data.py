@@ -13,9 +13,12 @@ def run(df, config):
         "HN": "Honduras",
         "JM": "Jamaica"
     }
-
     df = df.replace(country_map, subset=["pais"])
-
+    df = (
+    df
+    .withColumn("year", col("fecha_proceso").substr(1, 4))
+    .withColumn("month", col("fecha_proceso").substr(5, 2))
+    )
     # Selección y casteo de columnas
     df = df.select(
         col("pais").cast(StringType()).alias("country"),
@@ -26,7 +29,8 @@ def run(df, config):
         col("cantidad_unidades").cast(IntegerType()).alias("unit_quantity"),
         col("entrega_rutina").cast(BooleanType()).alias("routine_delivery"),
         col("entrega_bonificacion").cast(BooleanType()).alias("bonus_delivery"),
-        col("fecha_proceso").cast(StringType()).alias("process_date"),
+        col("year").cast(StringType()),
+        col("month").cast(StringType()),
         current_timestamp().alias("load_date")
     ).dropna()
 
@@ -35,6 +39,6 @@ def run(df, config):
         df
         .write
         .mode("overwrite")
-        .partitionBy("process_date")
+        .partitionBy("year", "month")
         .parquet(config.output.path)
     )

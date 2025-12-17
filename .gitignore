@@ -1,9 +1,14 @@
-# Entorno virtual
+# Entornos virtuales
 venv/
+.env/
 
-# Archivos temporales
+# Python
 __pycache__/
-*.log
+*.pyc
 
-# Config local (opcional)
-.env
+# Spark / Hadoop
+*.crc
+_SUCCESS
+
+# Sistema
+.DS_Store

@@ -5,10 +5,10 @@
 
 
 ## Descripción
-Este proyecto implementa un pipeline ETL utilizando PySpark para extraer, transformar y cargar datos, estructurandose con OmegaConf y con particiones en formato Parquet.
+Para esta prueba utilicé PySpark para extraer, transformar y cargar datos, estructurandose con OmegaConf y con particiones en formato Parquet.
 
 ## Configuración
-Todos los parámetros del pipeline se definen en `config.yaml`.
+Todos los parámetros del ETL lo he definido en `config.yaml`.
 
 ## Estructura de la solución
 
