@@ -1,5 +1,5 @@
 # APEX – ETL (PySpark)
-![LOGO](docs/apex_logo.png)
+![LOGO](docs/apex_logo.jpeg)
 
 ## Descripción General
 Este proyecto implementa un pipeline ETL utilizando PySpark para extraer, transformar y cargar datos, estructurandose con OmegaConf y con particiones en formato Parquet.
