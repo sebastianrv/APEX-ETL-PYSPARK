@@ -1,5 +1,5 @@
-# APEX – Pipeline ETL (PySpark)
-![LOGO](docs/pipeline.png)
+# APEX – ETL (PySpark)
+![LOGO](docs/apex_logo.png)
 
 ## Descripción General
 Este proyecto implementa un pipeline ETL utilizando PySpark para extraer, transformar y cargar datos, estructurandose con OmegaConf y con particiones en formato Parquet.
@@ -9,21 +9,23 @@ Todos los parámetros del pipeline se definen en `config.yaml`.
 
 ## Estructura del Proyecto
 
+```text
 Apex/
 ├── config/
 │   └── config.yaml
 ├── data/
-│   └── input/
+│   ├── input/
 │   └── processed/
-├── docs/ 
+├── docs/
 ├── src/
 │   ├── main.py
 │   ├── read_data.py
 │   ├── transform_data.py
 │   └── load_data.py
 ├── venv/
-├── Requirements.txt  
+├── Requirements.txt
 └── README.md
+```
 
 ## Flujo del ETL
 ![fLUJO ETL](docs/Flujo_ETL_APEX.png)
@@ -36,8 +38,8 @@ Apex/
 
 - Finalmente, en el archivo `load_data.py` se encarga de estandarizar el dataset final, aplicar los tipos de datos definitivos y particionar por fecha de proceso.
 
-## ▶️ Ejecución
+## Ejecución
 
 ```bash
-venv\Scripts\activate
+#venv\Scripts\activate
 python src/main.py
