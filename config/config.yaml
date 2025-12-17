@@ -1,0 +1,16 @@
+app:
+  name: apex_etl
+
+input:
+  path: data/input/global_mobility_data_entrega_productos (15-12).csv
+
+filters:
+  start_date: "2025-01-01"
+  end_date: "2025-06-30"
+  country: "SV"
+
+output:
+  path: data/processed
+
+units:
+  cs_to_units: 20
