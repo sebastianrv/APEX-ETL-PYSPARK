@@ -1,13 +1,16 @@
-# APEX – ETL (PySpark)
-![LOGO](docs/apex_logo.jpeg)
+<h1>
+  <img src="docs/apex_logo.jpeg" alt="APEX Logo" width="50" style="vertical-align: middle; margin-right: 10px;" />
+  APEX – ETL (PySpark)
+</h1>
 
-## Descripción General
+
+## Descripción
 Este proyecto implementa un pipeline ETL utilizando PySpark para extraer, transformar y cargar datos, estructurandose con OmegaConf y con particiones en formato Parquet.
 
 ## Configuración
 Todos los parámetros del pipeline se definen en `config.yaml`.
 
-## Estructura del Proyecto
+## Estructura de la solución
 
 ```text
 Apex/
@@ -32,9 +35,9 @@ Apex/
 
 ### Resumen:
 
-- El ETL se ejecuta a partir de los parámetros definidos en el archivo `config.yaml`, donde se establece el rango de fechas y páis a procesar, luego en el archivo `main.py` actúa como orquestador del flujo, inicializando la sesión de Spark y ejecutando de forma secuencial.
+- El ETL se ejecuta a partir de los parámetros definidos en el archivo `config.yaml`, donde se establece el rango de fechas y país a procesar, luego en el archivo `main.py` actúa como orquestador del flujo, inicializando la sesión de Spark y ejecutando de forma secuencial.
 
-- La extracción de datos se realiza en `read_data.py`, donde se leen los archivos CSV de origen aplicando los filtros configurados. Posteriormente, en `transform_data.py` se ejecutan las reglas que se establecen en la prueba técnica.
+- La extracción de datos se realiza en `read_data.py`, donde se lee el archivo CSV de origen. Posteriormente, en `transform_data.py` se ejecutan las reglas que se establecen en la prueba técnica.
 
 - Finalmente, en el archivo `load_data.py` se encarga de estandarizar el dataset final, aplicar los tipos de datos definitivos y particionar por fecha de proceso.
 
